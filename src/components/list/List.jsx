@@ -3,14 +3,14 @@ import { faShoppingBasket, faCheck } from '@fortawesome/free-solid-svg-icons'
 
 // CUSTOM COMPONENTE
 import CustomCard from '../../common/customCard'
-import ListFooter from '../list/listFooter'
-import ListItem from '../list/listItem'
+import ListFooter from '../listFooter'
+import ListItem from '../listItem'
 
 // STYLE 
 import './List.css'
 
 const List = (props) => (
-  <CustomCard containerClass='list-container' footer={<ListFooter />}>
+  <CustomCard containerClass='list-container' link='/lista' footer={<ListFooter />}>
     <div>
       <p className='title'>Mês</p>
       <div className='list-card-body'>
