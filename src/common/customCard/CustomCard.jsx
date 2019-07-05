@@ -4,7 +4,9 @@ import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
 import Divider from "@material-ui/core/Divider";
+import PropTypes from 'prop-types'
 
+// STYLE
 import './CustomCard.css'
 
 const CustomCard = props => (
@@ -22,5 +24,11 @@ const CustomCard = props => (
     </Card>
   </div>
 );
+
+CustomCard.propTypes = {
+  containerClass: PropTypes.string.isRequired,
+  children: PropTypes.element.isRequired,
+  footer: PropTypes.element
+}
 
 export default CustomCard;
