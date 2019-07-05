@@ -4,7 +4,7 @@ import { MuiThemeProvider } from '@material-ui/core/styles'
 
 import './App.css';
 import Header from './common/header'
-import Home from  './components/home'
+import Home from  './common/home'
 
 const theme = createMuiTheme({
   palette: {

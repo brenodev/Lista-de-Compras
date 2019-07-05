@@ -1,0 +1,9 @@
+.list-card-item {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+}
+
+.list-card-item svg {
+  margin-right: 10px;
+}
