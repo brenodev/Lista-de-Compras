@@ -14,6 +14,9 @@ import Home from  './common/home'
 
 
 const theme = createMuiTheme({
+  typography: {
+    useNextVariantes: true
+  },
   palette: {
     primary: {
       main: '#3f51b5', 
