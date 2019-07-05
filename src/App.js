@@ -3,7 +3,7 @@ import { createMuiTheme } from '@material-ui/core/styles';
 import { MuiThemeProvider } from '@material-ui/core/styles'
 
 import './App.css';
-import Header from './common/Header'
+import Header from './common/header'
 import Home from  './components/home'
 
 const theme = createMuiTheme({
