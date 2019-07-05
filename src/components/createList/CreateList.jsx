@@ -1,73 +1,30 @@
 import React from "react";
-import TextField from "@material-ui/core/TextField";
-import MenuItem from "@material-ui/core/MenuItem";
-import { InputAdornment } from "@material-ui/core";
-import Button from "@material-ui/core/Button";
+import CheckBox from '@material-ui/core/Checkbox'
+import Typography from '@material-ui/core/Typography'
 
-import "./CreateList.css";
 
-const units = ["kg", "lt", "un"];
+//CUSTOM COMPONENT
+import Form from '../../common/forms'
+import CustomCard from '../../common/customCard'
 
 const CreateList = () => (
   <div className="page-container">
-    <form action="" className="form-container">
-      <div className="form-row">
-        <TextField
-          value={""}
-          name="list"
-          label="Lista"
-          className=""
-          onChange={() => {}}
-          required
-        />
-        <Button variant="outlined" color="secondary">
-          Adicionar
-        </Button>
-      </div>
-      <div className="form-row">
-        <TextField
-          value={""}
-          name="product"
-          label="Produto"
-          className=""
-          onChange={() => {}}
-          required
-        />
-        <TextField
-          value={""}
-          name="quantity"
-          label="Quantidade"
-          className=""
-          onChange={() => {}}
-          required
-        />
-        <TextField
-          select
-          value={""}
-          name="unity"
-          label="Unidade"
-          className=""
-          onChange={() => {}}
-          required
-        >
-          {units.map(option => (
-            <MenuItem key={option} value={option}>
-              {option}
-            </MenuItem>
-          ))}
-        </TextField>
-        <TextField
-          value={""}
-          name="price"
-          label="Preço"
-          className=""
-          onChange={() => {}}
-          InputProps={{
-            startAdornment: <InputAdornment position="start">R$</InputAdornment>
-          }}
-        />
-      </div>
-    </form>
+    <Form />
+
+    <div className="list-items-container">
+      <CustomCard link='#' containerClass='list-item'>
+        <div>
+          <div className='list-item-header'>
+            <Typography variant='subtitle1' component='h2'>Café</Typography>
+            <CheckBox />
+          </div>
+          <Typography component='p'>1 Unidade</Typography>
+          <Typography component='p'>R$ 10.00</Typography>
+        </div>
+      </CustomCard>
+    </div>
+
+
   </div>
 );
 
