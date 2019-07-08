@@ -6,7 +6,7 @@ import Button from "@material-ui/core/Button";
 
 import "./Form.css";
 
-const units = ["kg", "lt", "un"];
+const units = ["Kilos", "Litros", "Unidades"];
 
 class Form extends Component {
   state = {
@@ -29,7 +29,6 @@ class Form extends Component {
     } else {
       this.props.addProduct({ product, quantity, unit, price  }, list)
       this.setState({
-        list: '',
         product: '',
         quantity: '',
         unit: '',
