@@ -9,7 +9,7 @@ import CustomCard from "../../common/customCard";
 //STYLE 
 import './ListItemCard.css'
 
-const ListItemCard = ({item, deleteProduct}) => ( 
+const ListItemCard = ({item, deleteProduct, toggleProduct}) => ( 
   <CustomCard 
     link="#" 
     containerClass="list-item" 
@@ -24,7 +24,7 @@ const ListItemCard = ({item, deleteProduct}) => (
         <div>
           <div className="list-item-header">
             <Typography variant="subtitle1" component="h2">{item.product}</Typography>
-            <CheckBox />
+            <CheckBox onClick={()=> toggleProduct(item.id)} checked={item.checked} />
           </div>
           <Typography component="p">{item.quantity} {item.unit}</Typography>
           <Typography component="p">R$ {item.price}</Typography>
