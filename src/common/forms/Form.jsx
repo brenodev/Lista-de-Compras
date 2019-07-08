@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import TextField from "@material-ui/core/TextField";
 import MenuItem from "@material-ui/core/MenuItem";
 import { InputAdornment } from "@material-ui/core";
@@ -8,45 +8,64 @@ import "./Form.css";
 
 const units = ["kg", "lt", "un"];
 
-const Form = () => (
-  <form action="" className="form-container">
+class Form extends Component {
+  state = {
+    list: '',
+    product: '',
+    quantity: '',
+    unit: '',
+    price: ''
+  }
+
+  handleChange = (event) => {
+    this.setState({ [event.target.name]: event.target.value })
+  }
+
+  handleSubmit = () => {
+    const { list, product, quantity, unit, price } = this.state
+    this.props.addProduct({ product, quantity, unit, price  }, list)
+  }
+
+  render() {
+    return (
+      <form action="" className="form-container">
       <div className="form-row">
         <TextField
-          value={""}
+          value={this.state.list}
           name="list"
           label="Lista"
           className=""
-          onChange={() => {}}
+          onChange={this.handleChange}
           required
         />
-        <Button variant="outlined" color="secondary">
+        <Button variant="outlined" color="secondary" onClick={this.handleSubmit}>
           Adicionar
         </Button>
       </div>
       <div className="form-row">
         <TextField
-          value={""}
+          value={this.state.product}
           name="product"
           label="Produto"
           className=""
-          onChange={() => {}}
+          onChange={this.handleChange}
           required
         />
         <TextField
-          value={""}
+          value={this.state.quantity}
           name="quantity"
           label="Quantidade"
           className=""
-          onChange={() => {}}
+          onChange={this.handleChange}
           required
         />
         <TextField
           select
-          value={""}
-          name="unity"
+          value={this.state.unit}
+          name="unit"
           label="Unidade"
           className=""
-          onChange={() => {}}
+          onChange={this.handleChange}
           required
         >
           {units.map(option => (
@@ -56,17 +75,19 @@ const Form = () => (
           ))}
         </TextField>
         <TextField
-          value={""}
+          value={this.state.price}
           name="price"
           label="Preço"
           className=""
-          onChange={() => {}}
+          onChange={this.handleChange}
           InputProps={{
             startAdornment: <InputAdornment position="start">R$</InputAdornment>
           }}
         />
       </div>
     </form>
-)
+    )
+  }
+}
 
 export default Form
