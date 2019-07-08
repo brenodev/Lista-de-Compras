@@ -10,9 +10,9 @@ import ListItem from '../listItem'
 import './List.css'
 
 const List = (props) => (
-  <CustomCard containerClass='list-container' link='/lista' footer={<ListFooter />}>
+  <CustomCard containerClass='list-container' link='/lista' footer={<ListFooter total={props.total} />}>
     <div>
-      <p className='title'>Mês</p>
+      <p className='title'>{props.list}</p>
       <div className='list-card-body'>
         <ListItem icon={faShoppingBasket} text='1 Item(s) Restante' />
         <ListItem icon={faCheck} text='2 Item(s) Comprados' />
