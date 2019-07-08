@@ -6,6 +6,7 @@ import './Home.css'
 // CUSTOM COMPONENTE
 import NewList from '../../components/newList'
 import List from '../../components/list'
+import { getListTotal } from '../../store/reducers/List-Reducer'
 
 const Home = (props) => (
   <div className='page-container'>
@@ -19,7 +20,7 @@ const Home = (props) => (
 
 const mapStateToProps = state => ({
   list: state.list,
-  total: state.list.items.reduce((total, item) => total + item.total, 0),
+  total: getListTotal(state),
 });
 
 export default connect(mapStateToProps, null)(Home)
