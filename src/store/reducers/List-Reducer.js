@@ -14,7 +14,10 @@ export default function list(state = initialState , action ){
         list: action.list, 
         items: [
           ...state.items,
-          { ...action.product, total: getItemTotal(action.product), id: uuidv1(), checked: false }
+          { ...action.product, 
+            total: getItemTotal(action.product), 
+            id: uuidv1(), checked: false 
+          }
         ]
       };
     case Types.DELETE_PRODUCT:
@@ -31,7 +34,7 @@ export default function list(state = initialState , action ){
       return state;
   } 
 }
-
+// HELPERS
 function getItemTotal(product) {
   return product.price * product.quantity;
 }
@@ -39,15 +42,24 @@ function getItemTotal(product) {
 function toggleItem(items, productId) {
   const index = items.findIndex(item => item.id === productId)
   return [
-    ...items.slice(0, index), // todos os items andes to item a ser modificado
+    ...items.slice(0, index), // todos os items antes do item a ser modificado
   { ...items[index], checked: !items[index].checked}, // item atualizado
-  ...items.slice(index + 1)  // todos os items depois to item a ser modificado
+  ...items.slice(index + 1)  // todos os items depois do item a ser modificado
   ]
 } 
 
+// SELECTORS
 export const getListTotal = createSelector(
   state => state.list.items,
   items => {
     return items.reduce((total, item) => total + item.total, 0)
   }
+) 
+export const getOpenedItems = createSelector(
+  state => state.list.items,
+  items => items.filter(item => !item.checked).length  
+) 
+export const getClosedItems = createSelector(
+  state => state.list.items,
+  items => items.filter(item => item.checked).length
 ) 
