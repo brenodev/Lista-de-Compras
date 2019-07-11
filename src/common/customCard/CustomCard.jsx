@@ -15,7 +15,7 @@ const CustomCard = props => (
   <div className={props.containerClass}>
     <Link to={props.link}>
       <Card className="card">
-        <CardActionArea className="card-action-area">
+        <CardActionArea onClick={props.action} className="card-action-area">
           {props.image &&
             <CardMedia 
               component='img'
@@ -43,7 +43,8 @@ CustomCard.propTypes = {
   children: PropTypes.element.isRequired,
   footer: PropTypes.element,
   link: PropTypes.string.isRequired,
-  image: PropTypes.string
+  image: PropTypes.string,
+  
 };
 
 export default CustomCard;

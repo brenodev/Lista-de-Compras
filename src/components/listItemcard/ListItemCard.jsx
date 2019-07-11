@@ -13,6 +13,7 @@ const ListItemCard = ({item, deleteProduct, toggleProduct}) => (
   <CustomCard 
     link="#" 
     containerClass="list-item" 
+    action={()=> toggleProduct(item.id)}
     footer={
       <ListItemFooter 
         deleteProduct={deleteProduct} 
@@ -24,7 +25,7 @@ const ListItemCard = ({item, deleteProduct, toggleProduct}) => (
         <div>
           <div className="list-item-header">
             <Typography variant="subtitle1" component="h2">{item.product}</Typography>
-            <CheckBox onClick={()=> toggleProduct(item.id)} checked={item.checked} />
+            <CheckBox checked={item.checked} />
           </div>
           <Typography component="p">{item.quantity} {item.unit}</Typography>
           <Typography component="p">R$ {item.price}</Typography>
