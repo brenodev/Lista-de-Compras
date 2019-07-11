@@ -12,6 +12,11 @@ export default function Form(state = initialState, action) {
         action: 'update',
         productToUpdade: action.product
       }
+    case Types.FINISH_UPDATE:
+      return {
+        action: 'new',
+        productToUpdade: {},
+      }
     default:
       return state
   }

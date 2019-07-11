@@ -11,7 +11,7 @@ import "./Form.css";
 // CUSTOM ACTIONS
 import { Creators as FormActions } from "../../store/actions/Form";
 
-const units = ["Kilos", "Litros", "Unidades"];
+const units = ["Quilos", "Litros", "Unidades"];
 
 class Form extends Component {
   state = {
@@ -24,6 +24,7 @@ class Form extends Component {
   };
 
   componentDidUpdate(prevProps) {
+    debugger
     if (this.props.form.action === 'update' && prevProps.form.productToUpdate !== this.props.form.productToUpdate){
       const { product, quantity, unit, price } = this.props.form.productToUpdate;
       this.setState({
@@ -60,6 +61,7 @@ class Form extends Component {
     const { id, checked } = this.props.form.productToUpdade;
     this.props.updateProduct( { product, quantity, unit, price, id, checked }, list);
     this.clearState();
+    this.props.finishUpdate()
   };
 
   clearState = () => {
