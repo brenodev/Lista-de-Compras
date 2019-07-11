@@ -39,7 +39,7 @@ class App extends Component {
               <Header />
               <Switch>
                 <Route exact path='/' component={Home} />
-                <Route path='/Lista' component={CreateList} />
+                <Route path='/Lista/:action' component={CreateList} />
               </Switch>
             </>
 
