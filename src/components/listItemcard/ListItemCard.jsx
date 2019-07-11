@@ -9,13 +9,14 @@ import CustomCard from "../../common/customCard";
 //STYLE 
 import './ListItemCard.css'
 
-const ListItemCard = ({item, deleteProduct, toggleProduct}) => ( 
+const ListItemCard = ({item, deleteProduct, toggleProduct, list}) => ( 
   <CustomCard 
     link="#" 
     containerClass="list-item" 
     action={()=> toggleProduct(item.id)}
     footer={
-      <ListItemFooter 
+      <ListItemFooter
+        list={list}
         deleteProduct={deleteProduct} 
         item={item} 
       />

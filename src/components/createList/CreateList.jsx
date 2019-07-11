@@ -27,7 +27,8 @@ class CreateList extends Component {
 
         <div className="list-items-container">
           {this.props.list.items.map(item => 
-            <ListItemCard 
+            <ListItemCard
+              list={this.props.list.list}
               item={item}
               toggleProduct={this.props.toggleProduct}
               deleteProduct={this.props.deleteProduct} 
