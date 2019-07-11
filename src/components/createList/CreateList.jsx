@@ -8,6 +8,7 @@ import "./CreateList.css";
 //CUSTOM COMPONENT
 import Form from "../../common/forms";
 import ListItemCard from "../listItemcard";
+import NewItem from '../newItem'
 import { Creators as ListActions } from "../../store/actions/List";
 
 class CreateList extends Component {
@@ -26,15 +27,19 @@ class CreateList extends Component {
         />
 
         <div className="list-items-container">
-          {this.props.list.items.map(item => 
-            <ListItemCard
-              list={this.props.list.list}
-              item={item}
-              toggleProduct={this.props.toggleProduct}
-              deleteProduct={this.props.deleteProduct} 
-              key={item.id}
-            />
+          {
+            this.props.list.items.map(item => 
+              <ListItemCard
+                list={this.props.list.list}
+                item={item}
+                toggleProduct={this.props.toggleProduct}
+                deleteProduct={this.props.deleteProduct} 
+                key={item.id}
+              />
             )
+          }
+          {
+            this.props.match.params.action === 'edicao' && <NewItem />
           }
         </div>
       </div>
