@@ -39,7 +39,7 @@ class CreateList extends Component {
             )
           }
           {
-            this.props.match.params.action === 'edicao' && <NewItem />
+            this.props.match.params.action === 'edicao' && <NewItem list={this.props.list.list} />
           }
         </div>
       </div>

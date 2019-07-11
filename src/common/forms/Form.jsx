@@ -35,6 +35,11 @@ class Form extends Component {
         showErrors: false
       });
     }
+    if (this.props.form.action === 'new' && prevProps.form.action !== this.props.form.action) {
+      this.setState({
+        list: this.props.form.listToUpdate
+      })
+    }
   }
 
   handleChange = event => {
@@ -42,27 +47,28 @@ class Form extends Component {
   };
 
   handleSubmit = () => {
-    const { list, product, quantity, unit, price } = this.state;
+    const { list, product, quantity, unit, price } = this.state
     if (!list || !product || !quantity || !unit) {
       this.setState({ showErrors: true });
     } else {
-      this.props.form.action === "new"
-        ? this.addItem(list, product, quantity, unit, price)
-        : this.updateItem(list, product, quantity, unit, price);
+      this.props.form.action === 'update'
+        ? this.updateItem(list, product, quantity, unit, price) 
+        : this.addItem(list, product, quantity, unit, price)
     }
-  };
+  }
 
   addItem = (list, product, quantity, unit, price) => {
     this.props.addProduct({ product, quantity, unit, price }, list);
     this.clearState();
+    this.props.finishAdd();
   };
 
   updateItem = (list, product, quantity, unit, price) => {
-    const { id, checked } = this.props.form.productToUpdade;
-    this.props.updateProduct( { product, quantity, unit, price, id, checked }, list);
+    const { id, checked } = this.props.form.productToUpdate;
+    this.props.updateProduct({product, quantity, unit, price, id, checked}, list)
     this.clearState();
-    this.props.finishUpdate()
-  };
+    this.props.finishUpdate();
+  }
 
   clearState = () => {
     this.setState({
@@ -154,7 +160,7 @@ class Form extends Component {
 
 const mapStateToProps = (state, ownProps) => ({
   form: state.form,
-  showForm: state.form.action === 'update' || ownProps.url === 'novo'
+  showForm: state.form.action || ownProps.url === 'novo'
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators(FormActions, dispatch);

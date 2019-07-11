@@ -1,26 +1,38 @@
 import { Types } from '../actions/Form'
 
 const initialState = {
-  action: 'new',
+  action: null,
   listToUpdate: null,
-  productToUpdade: {},
+  productToUpdate: {},
 }
 
-export default function Form(state = initialState, action) {
-  switch (action.type) {
+export default function form(state=initialState, action){
+  switch(action.type) {
     case Types.START_UPDATE:
       return {
         action: 'update',
         listToUpdate: action.list,
-        productToUpdade: action.product
-      }
+        productToUpdate: action.product
+      };
     case Types.FINISH_UPDATE:
       return {
-        action: 'new',
+        action: null,
         listToUpdate: null,
-        productToUpdade: {},
-      }
+        productToUpdate: {},
+      };
+    case Types.START_ADD:
+      return {
+        ...state,
+        action: 'new',
+        listToUpdate: action.list,
+      };
+    case Types.FINISH_ADD:
+      return {
+        action: null,
+        listToUpdate: null,
+        productToUpdate: {},
+      };
     default:
-      return state
+      return state;
   }
-}
+};

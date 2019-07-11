@@ -6,22 +6,25 @@ import { bindActionCreators } from 'redux'
 
 // STYLE
 import './NewItem.css'
- 
+
 // CUSTOM COMPONENT
 import CustomCard from '../../common/customCard'
 import { Creators as FormActions } from '../../store/actions/Form'
 
 
-const NewItem = () => (
-  <CustomCard link='#' containerClass='list-item'>
-    <p className='title'>Novo Produto</p>
-    <FontAwesomeIcon 
-      icon={ faPlusCircle } 
-      color='#E4E4e4' 
-      size='8x' 
-    />
+const NewItem = (props) => (
+  <CustomCard action={() => props.startAdd(props.list)} link='#' containerClass='list-item'>
+    <div className='new-item'>
+      <p className='title'>Novo Produto</p>
+      <FontAwesomeIcon 
+        icon={ faPlusCircle } 
+        color='#E4E4e4' 
+        size='8x' 
+      />
+    </div>
   </CustomCard>
 )
+
 
 const mapDispatchToProps = dispatch => bindActionCreators(FormActions, dispatch);
 
