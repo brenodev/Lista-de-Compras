@@ -5,4 +5,19 @@
   align-items: center;
 }
 
+.home-image {
+  background-image: url(https://saocarlosemrede.sfo2.digitaloceanspaces.com/2018/04/mercado-1.jpg);
+  height: 800px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.new-list-container > a > div {
+  background-color: rgb(255, 255, 255, 0.8)
+}
+
+.list-container > a > div {
+  background-color: rgb(255, 255, 255, 0.8)
+}
 

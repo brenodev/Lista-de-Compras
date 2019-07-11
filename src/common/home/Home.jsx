@@ -10,7 +10,7 @@ import { getListTotal, getOpenedItems, getClosedItems } from '../../store/reduce
 import { Creators as ListActions } from '../../store/actions/List' 
 
 const Home = (props) => (
-  <div className='page-container'>
+  <div className='page-container home-image'>
     <NewList newList={props.newList}/>
     { props.list.items.length > 0 &&
       <List 
