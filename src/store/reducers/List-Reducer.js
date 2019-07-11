@@ -29,7 +29,12 @@ export default function list(state = initialState , action ){
       return {
         ...state,
         items: toggleItem(state.items, action.productId)
-      }  
+      }
+    case Types.UPDATE_PRODUCT:
+      return {
+        list: action.list,
+        items: updateProduct(state.items, action.product),
+      } 
     default:
       return state;
   } 
@@ -46,7 +51,16 @@ function toggleItem(items, productId) {
   { ...items[index], checked: !items[index].checked}, // item atualizado
   ...items.slice(index + 1)  // todos os items depois do item a ser modificado
   ]
-} 
+}
+
+function updateProduct(items, product) {
+  const index = items.findIndex(item => item.id === product.id);
+  return [
+    ...items.slice(0, index),
+    { ...product, total: getItemTotal(product) },
+    ...items.slice(index + 1),
+  ];  
+}
 
 // SELECTORS
 export const getListTotal = createSelector(
