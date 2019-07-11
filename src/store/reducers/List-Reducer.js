@@ -7,12 +7,10 @@ const initialState = {
   items: []
 }
 
-export default function list(state = initialState , action ){
+export default function list(state=initialState, action) {
   switch(action.type) {
     case Types.NEW_LIST:
-      return  { ...initialState, date: getDate()
-
-      }
+      return { ...initialState, date: getDate() };
     case Types.ADD_PRODUCT:
       return {
         ...state,
@@ -33,7 +31,7 @@ export default function list(state = initialState , action ){
         ...state,
         list: action.list,
         items: updateProduct(state.items, action.product),
-      }
+      };
     case Types.GET_IMAGE_SUCCESS:
     case Types.GET_IMAGE_FAILURE:
       return {
@@ -45,14 +43,15 @@ export default function list(state = initialState , action ){
             total: getItemTotal(action.product), 
             id: uuidv1(), 
             checked: false,
-            img: action.img
+            img: action.img,
           }
         ]
-      }     
-    default:
+      }
+    default: 
       return state;
-  } 
+  }
 }
+
 // HELPERS
 function getItemTotal(product) {
   return product.price * product.quantity;

@@ -1,18 +1,18 @@
 export const Types = {
-  ADD_PRODUCT: 'List/ADD_PRODUCT',
-  DELETE_PRODUCT: 'List/DELETE_PRODUCT',
-  TOGGLE_PRODUCT: 'List/TOGGLE_PRODUCT',
-  UPDATE_PRODUCT: 'List/UPDATE_PRODUCT',
+  ADD_PRODUCT: 'list/ADD_PRODUCT',
+  DELETE_PRODUCT: 'list/DELETE_PRODUCT',
+  TOGGLE_PRODUCT: 'list/TOGGLE_PRODUCT',
+  UPDATE_PRODUCT: 'list/UPDATE_PRODUCT',
   NEW_LIST: 'list/NEW_LIST',
   GET_IMAGE_SUCCESS: 'list/GET_IMAGE_SUCCESS',
   GET_IMAGE_FAILURE: 'list/GET_IMAGE_FAILURE',
-} 
+}
 
 export const Creators = {
   addProduct: (product, list) => ({
-    type: Types.ADD_PRODUCT,
-    product,
-    list
+      type: Types.ADD_PRODUCT,
+      product,
+      list,
   }),
 
   deleteProduct: productId => ({
@@ -20,12 +20,12 @@ export const Creators = {
     productId,
   }),
 
-  toggleProduct : productId => ({
+  toggleProduct: productId => ({
     type: Types.TOGGLE_PRODUCT,
-    productId
+    productId,
   }),
-  
-  updateProduct: ( product, list ) => ({
+
+  updateProduct: (product, list) => ({
     type: Types.UPDATE_PRODUCT,
     product,
     list
@@ -35,19 +35,16 @@ export const Creators = {
     type: Types.NEW_LIST,
   }),
 
-  getImageSuccess : (product, img) => ({
+  getImageSuccess: (product, img) => ({
     type: Types.GET_IMAGE_SUCCESS,
     product,
     img,
   }),
 
-  getImageFailure : (product, img) => ({
+  getImageFailure: (product, img) => ({
     type: Types.GET_IMAGE_FAILURE,
     product,
     img,
-  }),
+  })
 
 }
-
-
-

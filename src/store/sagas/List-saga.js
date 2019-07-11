@@ -6,10 +6,10 @@ const genericImg = 'https://st2.depositphotos.com/1765488/7352/i/950/depositphot
 
 export function* getImageRequest(action) {
   try {
-    const img = yield call(services.getImages, action.product.product)
+    const img = yield call(services.getImages, action.product.product);
     yield put(ListActions.getImageSuccess(action.product, img))
   } catch(err) {
-    console.log(err)
+    console.log(err);
     yield put(ListActions.getImageFailure(action.product, genericImg))
   }
 }

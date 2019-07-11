@@ -21,7 +21,7 @@ const ListItemCard = ({item, deleteProduct, toggleProduct, list}) => (
         item={item} 
       />
     }
-    image='http://s2.glbimg.com/P6Nn4AXYPq-K1Xek4cCKyONYYyA=/e.glbimg.com/og/ed/f/original/2014/01/15/cafe.jpg'
+    image={item.img}
   >
         <div>
           <div className="list-item-header">
